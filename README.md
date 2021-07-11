@@ -4,6 +4,9 @@
 - An EQ ported from SHARP Aquos SHV33
 - Global type soundfx
 
+## Screenshot
+- https://t.me/androidryukimodsdiscussions/26291
+
 ## Requirements
 - Android 4.4 until 8
 - Magisk installed
