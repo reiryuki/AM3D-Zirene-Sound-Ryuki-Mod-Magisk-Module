@@ -45,4 +45,4 @@
 - https://www.paypal.me/reiryuki
 
 ## Download
-- Tap here > 
+- Tap here > https://www.pling.com/p/1554663/
