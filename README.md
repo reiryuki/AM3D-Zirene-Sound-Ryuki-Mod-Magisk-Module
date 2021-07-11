@@ -22,7 +22,7 @@
 
   `setprop stream.mode m`
 
-  Flash the module after. You can also enable for another stream like n = notification, a = alarm, v = voice call, and r = ringtone. For example, if you want to enable music and notification stream, then change the `m` to `mn`.
+  Flash the module after. You can also enable another stream like n = notification, a = alarm, v = voice call, and r = ringtone. For example, if you want to enable music and notification stream, then change the `m` to `mn`.
 
 - You can reset the data by run at Terminal Emulator:
 
