@@ -30,7 +30,7 @@
   Flash the module after.
 
 ## Troubleshootings
-- Install Audio Modification Library module or [ACDB module](https://t.me/viperatmos) ( Android 10 and bellow only) (choose one, don't use both!) if you using another audio mod.
+- Install Audio Modification Library module if using another audio mod.
 
 ## Bug Report
 - https://t.me/androidryukimodsdiscussions/2618
