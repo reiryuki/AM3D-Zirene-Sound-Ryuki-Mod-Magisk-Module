@@ -16,14 +16,7 @@
 - Reboot
 
 ## Optional
-- You can enable music post process stream mode so the FX can be used together with any post process type soundfx (but the FX cannot be turned off) by run at Terminal Emulator:
-  
-  su
-
-  `setprop stream.mode m`
-
-  Flash the module after. You can also enable another stream like n = notification, a = alarm, v = voice call, and r = ringtone. For example, if you want to enable music and notification stream, then change the `m` to `mn`.
-
+- https://t.me/androidryukimodsdiscussions/26764
 - You can reset the data by run at Terminal Emulator:
 
   su
