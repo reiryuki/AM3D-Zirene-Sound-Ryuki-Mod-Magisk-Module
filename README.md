@@ -19,11 +19,9 @@
 - https://t.me/androidryukimodsdiscussions/26764
 - You can reset the data by run at Terminal Emulator:
 
-  su
+  `su -c setprop am3d.cleanup 1`
 
-  `setprop am3d.cleanup 1`
-
-  Flash the module after.
+  Reinstall the module after and reboot.
 
 ## Troubleshootings
 - Install Audio Modification Library module if using another audio mod.
@@ -33,8 +31,9 @@
 
 ## Credits
 - @ahrion @zackptg5 @guitardedhero
-- Android Ryuki Mods Discussions Team
-- https://t.me/androidryukimodsdiscussions/25188
+- https://t.me/viperatmos
+- https://t.me/androidryukimodsdiscussions
+- https://t.me/androidappsportdevelopment
 
 ## Thanks for Donations
 - https://t.me/androidryukimodsdiscussions/2619
