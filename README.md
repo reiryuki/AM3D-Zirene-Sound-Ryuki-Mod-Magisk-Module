@@ -16,6 +16,7 @@
 - Reboot
 
 ## Optionals
+- https://t.me/androidryukimodsdiscussions/60861
 - https://t.me/androidryukimodsdiscussions/26764
 - You can reset the data by run at Terminal Emulator:
 
@@ -24,12 +25,12 @@
   Reinstall the module after and reboot.
 
 ## Troubleshootings
-- Install Audio Modification Library module if using another audio mod.
+- https://t.me/androidryukimodsdiscussions/29836
 
 ## Bug Report
 - https://t.me/androidryukimodsdiscussions/2618
 
-## Credits
+## Credits and Contributors
 - @ahrion @zackptg5 @guitardedhero
 - https://t.me/viperatmos
 - https://t.me/androidryukimodsdiscussions
