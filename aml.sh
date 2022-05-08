@@ -40,6 +40,11 @@ sed -i 's/<effect name="removed" library="removed" uuid="removed"\/>//g' $MODAEX
 sed -i 's/<libsw library="removed" uuid="removed"\/>//g' $MODAEX
 sed -i 's/<libhw library="removed" uuid="removed"\/>//g' $MODAEX
 sed -i 's/<apply effect="removed"\/>//g' $MODAEX
+sed -i 's/<library name="removed" path="removed" \/>//g' $MODAEX
+sed -i 's/<effect name="removed" library="removed" uuid="removed" \/>//g' $MODAEX
+sed -i 's/<libsw library="removed" uuid="removed" \/>//g' $MODAEX
+sed -i 's/<libhw library="removed" uuid="removed" \/>//g' $MODAEX
+sed -i 's/<apply effect="removed" \/>//g' $MODAEX
 }
 
 # setup audio effects conf
@@ -59,6 +64,7 @@ if [ "$MODAEC" ]; then
   sed -i "/^        fens {/ {;N s/        fens {\n        }//}" $MODAEC
   sed -i "/^        lmfv {/ {;N s/        lmfv {\n        }//}" $MODAEC
   sed -i "/^        dirac {/ {;N s/        dirac {\n        }//}" $MODAEC
+  sed -i "/^        dtsaudio {/ {;N s/        dtsaudio {\n        }//}" $MODAEC
   sed -i 's/ring_helper { }//g' $MODAEC
   sed -i 's/music_helper { }//g' $MODAEC
   sed -i 's/voice_helper { }//g' $MODAEC
@@ -116,6 +122,7 @@ if [ "$MODAEX" ]; then
   sed -i 's/<apply effect="fens"\/>//g' $MODAEX
   sed -i 's/<apply effect="lmfv"\/>//g' $MODAEX
   sed -i 's/<apply effect="dirac"\/>//g' $MODAEX
+  sed -i 's/<apply effect="dtsaudio"\/>//g' $MODAEX
   if ! grep -Eq '<postprocess>' $MODAEX || grep -Eq '<!-- Audio post processor' $MODAEX; then
     sed -i '/<\/effects>/a\
     <postprocess>\
