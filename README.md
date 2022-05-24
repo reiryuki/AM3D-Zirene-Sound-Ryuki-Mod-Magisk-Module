@@ -3,6 +3,7 @@
 ## Descriptions
 - An EQ ported from SHARP Aquos SHV33
 - Global type soundfx
+- Source: https://github.com/reiryuki/AM3D-Zirene-Sound-Ryuki-Mod-Magisk-Module/blob/main/module.prop
 
 ## Screenshot
 - https://t.me/androidryukimodsdiscussions/26291
