@@ -5,7 +5,7 @@
 - Global type soundfx
 - Sources: https://github.com/reiryuki/AM3D-Zirene-Sound-Ryuki-Mod-Magisk-Module/blob/main/module.prop
 
-## Screenshot
+## Screenshots
 - https://t.me/androidryukimodsdiscussions/26291
 
 ## Requirements
