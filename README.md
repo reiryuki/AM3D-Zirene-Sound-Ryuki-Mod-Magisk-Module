@@ -19,7 +19,7 @@
 ## Optionals
 - https://t.me/androidryukimodsdiscussions/60861
 - https://t.me/androidryukimodsdiscussions/26764
-- You can reset the data by run at Terminal Emulator:
+- You can reset the data by run at Terminal Emulator (only for v2.8 and bellow):
 
   `su -c setprop am3d.cleanup 1`
 
@@ -40,6 +40,7 @@
 ## Thanks for Donations
 - https://t.me/androidryukimodsdiscussions/2619
 - https://www.paypal.me/reiryuki
+- https://ko-fi.com/reiryuki
 
 ## Download
 - Tap here > https://www.pling.com/p/1554663/
