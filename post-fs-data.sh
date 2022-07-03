@@ -1,5 +1,6 @@
 mount -o rw,remount /data
 MODPATH=${0%/*}
+API=`getprop ro.build.version.sdk`
 AML=/data/adb/modules/aml
 ACDB=/data/adb/modules/acdb
 
@@ -11,6 +12,14 @@ set -x
 FILE=$MODPATH/sepolicy.sh
 if [ -f $FILE ]; then
   sh $FILE
+fi
+
+# context
+if [ "$API" -ge 26 ]; then
+  chcon -R u:object_r:system_lib_file:s0 $MODPATH/system/lib*
+  chcon -R u:object_r:vendor_file:s0 $MODPATH/system/vendor
+  chcon -R u:object_r:vendor_configs_file:s0 $MODPATH/system/vendor/etc
+  chcon -R u:object_r:vendor_configs_file:s0 $MODPATH/system/vendor/odm/etc
 fi
 
 # etc

@@ -1,10 +1,11 @@
 id=AM3DZireneSound
 name=AM3D Zirene Sound Ryuki Mod
-version=v2.8
-versionCode=18
+version=v2.9-beta.1
+versionCode=19
 author=Rei Ryuki the Fixer
 description=An EQ global type soundfx ported from SHARP Aquos SHV33 for any Android 4.4 until 8. Credit belongs to @ahrion, @zackptg5, and @guitardedhero.
 # Source: KDDI/SHV33_jp_kdi/SHV33:7.0/SB201/03.02.09:user/release-keys
 # AM3DZireneSound.apk source: https://github.com/therealahrion/AM3D-Zirene-Sound
 # libam3daudioenhancement.so source: https://forum.xda-developers.com/t/am3d-zirene-reg-sound-unity-deprecated.3396698/page-37 AM3D_Nougat_libraries.zip
+
 
