@@ -1,47 +1,53 @@
 # AM3D Zirene Sound Ryuki Mod Magisk Module
 
+## DISCLAIMER
+- AM3D apps and blobs are owned by AM3D™.
+- The MIT license specified here is for the Magisk Module, not for AM3D apps and blobs.
+
 ## Descriptions
-- An EQ ported from SHARP Aquos SHV33
+- Equalizer soundfx ported from SHARP Aquos SHV33 and integrated as a Magisk Module for all supported and rooted devices with Magisk
 - Global type soundfx
-- Sources: https://github.com/reiryuki/AM3D-Zirene-Sound-Ryuki-Mod-Magisk-Module/blob/main/module.prop
+
+## Sources
+- KDDI/SHV33_jp_kdi/SHV33:7.0/SB201/03.02.09:user/release-keys
+- AM3DZireneSound.apk: https://github.com/therealahrion/AM3D-Zirene-Sound
+- libam3daudioenhancement.so source: https://forum.xda-developers.com/t/am3d-zirene-reg-sound-unity-deprecated.3396698/page-37 AM3D_Nougat_libraries.zip
 
 ## Screenshots
 - https://t.me/androidryukimodsdiscussions/26291
 
 ## Requirements
-- Android 4.4 until 8
-- Magisk installed
+- Android 4.4 until 8 only
+- Magisk Installed
 
-## Installation Guide
-- Install the module via Magisk app or recovery
-- Install AML Magisk Module only if using any other audio mod module https://zackptg5.com/android.php#aml
+## Installation Guide & Download Link
+- Install this module https://www.pling.com/p/1554663/ via Magisk Manager or Recovery
+- Install AML Magisk Module https://zackptg5.com/android.php#aml only if using any other audio mod module
 - Reboot
 
 ## Optionals
 - https://t.me/androidryukimodsdiscussions/60861
 - https://t.me/androidryukimodsdiscussions/26764
-- You can reset the data by run at Terminal Emulator (only for v2.8 and bellow):
-
-  `su -c setprop am3d.cleanup 1`
-
-  Reinstall the module after and reboot.
 
 ## Troubleshootings
 - https://t.me/androidryukimodsdiscussions/29836
 
-## Bug Report
+## Support & Bug Report
 - https://t.me/androidryukimodsdiscussions/2618
 
-## Credits and Contributors
+## Tested on
+- Android 7
+
+## Credits and contributors
 - @ahrion @zackptg5 @guitardedhero
 - https://t.me/viperatmos
 - https://t.me/androidryukimodsdiscussions
-- https://t.me/androidappsportdevelopment
+- You can contribute ideas about this Magisk Module here: https://t.me/androidappsportdevelopment
 
 ## Thanks for Donations
-- https://t.me/androidryukimodsdiscussions/2619
-- https://www.paypal.me/reiryuki
+- This Magisk Module is always will be free but you can however show us that you are care by making a donations:
 - https://ko-fi.com/reiryuki
+- https://www.paypal.me/reiryuki
+- https://t.me/androidryukimodsdiscussions/2619
 
-## Download
-- Tap here > https://www.pling.com/p/1554663/
+
