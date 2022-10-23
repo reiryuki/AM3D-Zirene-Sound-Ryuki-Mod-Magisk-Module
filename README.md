@@ -17,7 +17,7 @@
 - https://t.me/androidryukimodsdiscussions/26291
 
 ## Requirements
-- Android 4.4 until 8 only
+- Android 4.4 until 8.1 only
 - Magisk installed
 
 ## Installation Guide & Download Link
