@@ -18,7 +18,7 @@
 
 ## Requirements
 - Android 4.4 until 8 only
-- Magisk Installed
+- Magisk installed
 
 ## Installation Guide & Download Link
 - Install this module https://www.pling.com/p/1554663/ via Magisk Manager or Recovery
@@ -34,6 +34,7 @@
 
 ## Support & Bug Report
 - https://t.me/androidryukimodsdiscussions/2618
+- If you don't do above, issues will be closed immediately
 
 ## Tested on
 - Android 7
