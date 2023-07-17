@@ -2,7 +2,7 @@
 
 ## DISCLAIMER
 - AM3D apps and blobs are owned by AM3D™.
-- The MIT license specified here is for the Magisk Module, not for AM3D apps and blobs.
+- The MIT license specified here is for the Magisk Module only, not for AM3D apps and blobs.
 
 ## Descriptions
 - Equalizer soundfx ported from SHARP Aquos SHV33 and integrated as a Magisk Module for all supported and rooted devices with Magisk
@@ -18,12 +18,14 @@
 
 ## Requirements
 - Android 4.4 until 8.1 only
-- Magisk installed
+- Magisk or KernelSU installed
 
 ## Installation Guide & Download Link
-- Install this module https://www.pling.com/p/1554663/ via Magisk app or Recovery
+- Install this module https://www.pling.com/p/1554663/ via Magisk app or KernelSU app or Recovery if Magisk installed
 - Install AML Magisk Module https://t.me/androidryukimodsdiscussions/29836 only if using any other audio mod module
 - Reboot
+- If you are using KernelSU, you need to allow superuser list manually all package name listed in package.txt (and your home launcher app also) (enable show system apps) and reboot after
+- If you are using SUList, you need to allow list manually your home launcher app (enable show system apps) and reboot after
 
 ## Optionals
 - https://t.me/androidryukimodsdiscussions/60861
