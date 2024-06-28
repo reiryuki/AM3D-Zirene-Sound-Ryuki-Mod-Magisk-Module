@@ -29,6 +29,13 @@ if [ "`grep_prop debug.log $OPTIONALS`" == 1 ]; then
   ui_print " "
 fi
 
+# recovery
+if [ "$BOOTMODE" != true ]; then
+  MODPATH_UPDATE=`echo $MODPATH | sed 's|modules/|modules_update/|g'`
+  rm -f $MODPATH/update
+  rm -rf $MODPATH_UPDATE
+fi
+
 # run
 . $MODPATH/function.sh
 
@@ -53,12 +60,12 @@ ui_print " "
 NUM=19
 NUM2=27
 if [ "$API" -lt $NUM ]; then
-  ui_print "! Unsupported SDK $API. You have to upgrade your Android"
-  ui_print "  version at least SDK API $NUM to use this module."
+  ui_print "! Unsupported SDK $API. You have to upgrade your"
+  ui_print "  Android version at least SDK $NUM to use this module."
   abort
 elif [ "$API" -gt $NUM2 ]; then
-  ui_print "! Unsupported SDK $API. This module is only for SDK API"
-  ui_print "  $NUM2 and bellow."
+  ui_print "! Unsupported SDK $API."
+  ui_print "  This module is only for SDK $NUM2 and bellow."
 else
   ui_print "- SDK $API"
 fi
@@ -91,23 +98,6 @@ magisk_setup
 
 # path
 SYSTEM=`realpath $MIRROR/system`
-if [ "$BOOTMODE" == true ]; then
-  if [ ! -d $MIRROR/vendor ]; then
-    mount_vendor_to_mirror
-  fi
-  if [ ! -d $MIRROR/product ]; then
-    mount_product_to_mirror
-  fi
-  if [ ! -d $MIRROR/system_ext ]; then
-    mount_system_ext_to_mirror
-  fi
-  if [ ! -d $MIRROR/odm ]; then
-    mount_odm_to_mirror
-  fi
-  if [ ! -d $MIRROR/my_product ]; then
-    mount_my_product_to_mirror
-  fi
-fi
 VENDOR=`realpath $MIRROR/vendor`
 PRODUCT=`realpath $MIRROR/product`
 SYSTEM_EXT=`realpath $MIRROR/system_ext`
@@ -158,7 +148,10 @@ ui_print "- Cleaning..."
 PKGS=`cat $MODPATH/package.txt`
 if [ "$BOOTMODE" == true ]; then
   for PKG in $PKGS; do
-    RES=`pm uninstall $PKG 2>/dev/null`
+    FILE=`find /data/app -name *$PKG*`
+    if [ "$FILE" ]; then
+      RES=`pm uninstall $PKG 2>/dev/null`
+    fi
   done
 fi
 remove_sepolicy_rule
@@ -295,6 +288,9 @@ if echo "$PROP" | grep -q m; then
   ui_print "- Activating music stream..."
   sed -i 's|#m||g' $FILE
   sed -i 's|musicstream=|musicstream=true|g' $MODPATH/acdb.conf
+  sed -i 's|music_stream false|music_stream true|g' $MODPATH/service.sh
+  ui_print "  Sound effect will always be enabled"
+  ui_print "  and cannot be disabled by on/off togglers"
   ui_print " "
 else
   APPS=AudioFX
@@ -393,7 +389,7 @@ fi
 # raw
 FILE=$MODPATH/.aml.sh
 if [ "`grep_prop disable.raw $OPTIONALS`" == 0 ]; then
-  ui_print "- Not disables Ultra Low Latency playback (RAW)"
+  ui_print "- Does not disable Ultra Low Latency playback (RAW)"
   ui_print " "
 else
   sed -i 's|#u||g' $FILE
@@ -404,9 +400,7 @@ fi
 . $MODPATH/.aml.sh
 
 # unmount
-if [ "$BOOTMODE" == true ] && [ ! "$MAGISKTMP" ]; then
-  unmount_mirror
-fi
+unmount_mirror
 
 
 

@@ -6,6 +6,9 @@ create { system_lib_file vendor_file vendor_configs_file }
 allow { system_file system_lib_file vendor_file vendor_configs_file } labeledfs filesystem associate
 allow init { system_file system_lib_file vendor_file vendor_configs_file } { dir file } relabelfrom
 
+# unix_stream_socket
+allow { hal_audio_default mtk_hal_audio audioserver } { system_app priv_app platform_app untrusted_app_29 untrusted_app_27 untrusted_app } unix_stream_socket connectto
+
 # additional
 allow { hal_audio_default mtk_hal_audio audioserver } system_suspend_hwservice hwservice_manager find
 allow { hal_audio_default mtk_hal_audio audioserver } hal_system_suspend_service service_manager find
