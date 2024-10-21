@@ -3,9 +3,17 @@ ui_print " "
 
 # var
 UID=`id -u`
-LIST32BIT=`grep_get_prop ro.product.cpu.abilist32`
-if [ ! "$LIST32BIT" ]; then
-  LIST32BIT=`grep_get_prop ro.system.product.cpu.abilist32`
+[ ! "$UID" ] && UID=0
+ABILIST=`grep_get_prop ro.product.cpu.abilist`
+if [ ! "$ABILIST" ]; then
+  ABILIST=`grep_get_prop ro.system.product.cpu.abilist`
+fi
+ABILIST32=`grep_get_prop ro.product.cpu.abilist32`
+if [ ! "$ABILIST32" ]; then
+  ABILIST32=`grep_get_prop ro.system.product.cpu.abilist32`
+fi
+if [ ! "$ABILIST32" ]; then
+  [ -f /system/lib/libandroid.so ] && ABILIST32=true
 fi
 
 # log
@@ -71,23 +79,34 @@ else
 fi
 ui_print " "
 
-# bit
-if [ "$IS64BIT" == true ]; then
-  ui_print "- 64 bit architecture"
+# architecture
+if [ "$ABILIST" ]; then
+  ui_print "- $ABILIST architecture"
   ui_print " "
-  # 32 bit
-  if [ "$LIST32BIT" ]; then
-    ui_print "- 32 bit library support"
+fi
+NAME=arm64-v8a
+NAME2=armeabi-v7a
+if ! echo "$ABILIST" | grep -q $NAME; then
+  if echo "$ABILIST" | grep -q $NAME2; then
+    rm -rf `find $MODPATH/system -type d -name *64*`
   else
-    ui_print "- Doesn't support 32 bit library"
-    rm -rf $MODPATH/armeabi-v7a $MODPATH/x86\
-     $MODPATH/system*/lib $MODPATH/system*/vendor/lib
+    if [ "$BOOTMODE" == true ]; then
+      ui_print "! This ROM doesn't support $NAME nor $NAME2 architecture"
+    else
+      ui_print "! This Recovery doesn't support $NAME nor $NAME2 architecture"
+      ui_print "  Try to install via Magisk app instead"
+    fi
+    abort
   fi
-  ui_print " "
-else
-  ui_print "- 32 bit architecture"
-  rm -rf `find $MODPATH -type d -name *64*`
-  ui_print " "
+fi
+if ! echo "$ABILIST" | grep -q $NAME2; then
+  rm -rf $MODPATH/system*/lib\
+   $MODPATH/system*/vendor/lib
+  if [ "$BOOTMODE" != true ]; then
+    ui_print "! This Recovery doesn't support $NAME2 architecture"
+    ui_print "  Try to install via Magisk app instead"
+    ui_print " "
+  fi
 fi
 
 # recovery
@@ -179,7 +198,7 @@ if [ "`grep_prop data.cleanup $OPTIONALS`" == 1 ]; then
   ui_print " "
 elif [ -d $DIR ]\
 && [ "$PREVMODNAME" != "$MODNAME" ]; then
-  ui_print "- Different version detected"
+  ui_print "- Different module name is detected"
   ui_print "  Cleaning-up $MODID data..."
   cleanup
   ui_print " "
@@ -233,7 +252,7 @@ for APP in $APPS; do
 done
 }
 replace_dir() {
-if [ -d $DIR ]; then
+if [ -d $DIR ] && [ ! -d $MODPATH$MODDIR ]; then
   REPLACE="$REPLACE $MODDIR"
 fi
 }
@@ -276,9 +295,10 @@ done
 }
 
 # hide
-APPS="`ls $MODPATH/system/priv-app` `ls $MODPATH/system/app`"
+APPS="`ls $MODPATH/system/priv-app`
+      `ls $MODPATH/system/app`"
 hide_oat
-APPS=MusicFX
+APPS="$APPS MusicFX"
 hide_app
 
 # stream mode
@@ -389,7 +409,7 @@ fi
 # raw
 FILE=$MODPATH/.aml.sh
 if [ "`grep_prop disable.raw $OPTIONALS`" == 0 ]; then
-  ui_print "- Does not disable Ultra Low Latency playback (RAW)"
+  ui_print "- Does not disable Ultra Low Latency (Raw) playback"
   ui_print " "
 else
   sed -i 's|#u||g' $FILE

@@ -12,30 +12,30 @@
 - KDDI/SHV33_jp_kdi/SHV33:7.0/SB201/03.02.09:user/release-keys
 - AM3DZireneSound.apk: https://github.com/therealahrion/AM3D-Zirene-Sound
 - libam3daudioenhancement.so: https://forum.xda-developers.com/t/am3d-zirene-reg-sound-unity-deprecated.3396698/page-37 AM3D_Nougat_libraries.zip
-- libmagiskpolicy.so: Kitsune Mask R65C33E4F
+- libmagiskpolicy.so: Kitsune Mask R6687BB53
 
 ## Screenshots
 - https://t.me/androidryukimodsdiscussions/26291
 
 ## Requirements
-- ARM64 or ARM architecture
+- arm64-v8a or armeabi-v7a architecture
 - Android 4.4 (SDK 19) until 8.1 (SDK 27) only
 - Magisk or KernelSU installed
 
 ## Installation Guide & Download Link
 - Install this module https://www.pling.com/p/1554663/ via Magisk app or KernelSU app or Recovery if Magisk installed
-- Install AML Magisk Module https://t.me/androidryukimodsdiscussions/29836 only if using any other else audio mod module
+- Install AML Magisk Module https://t.me/ryukinotes/34 only if using any other else audio mod module
 - If you are using KernelSU, you need to disable Unmount Modules by Default in KernelSU app settings
 - Reboot
 - If you are using KernelSU, you need to allow superuser list manually all package name listed in package.txt (and your home launcher app also) (enable show system apps) and reboot afterwards
 - If you are using SUList, you need to allow list manually your home launcher app (enable show system apps) and reboot afterwards
 
 ## Optionals
-- Global: https://t.me/androidryukimodsdiscussions/60861
+- Global: https://t.me/ryukinotes/35
 - Stream: https://t.me/androidryukimodsdiscussions/26764
 
 ## Troubleshootings
-- Global: https://t.me/androidryukimodsdiscussions/29836
+- Global: https://t.me/ryukinotes/34
 
 ## Support & Bug Report
 - https://t.me/androidryukimodsdiscussions/2618
