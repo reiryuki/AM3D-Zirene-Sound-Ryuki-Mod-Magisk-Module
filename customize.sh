@@ -4,13 +4,79 @@ ui_print " "
 # var
 UID=`id -u`
 [ ! "$UID" ] && UID=0
+FIRARCH=`grep_get_prop ro.bionic.arch`
+SECARCH=`grep_get_prop ro.bionic.2nd_arch`
 ABILIST=`grep_get_prop ro.product.cpu.abilist`
 if [ ! "$ABILIST" ]; then
   ABILIST=`grep_get_prop ro.system.product.cpu.abilist`
 fi
+if [ "$FIRARCH" == arm64 ]\
+&& ! echo "$ABILIST" | grep -q arm64-v8a; then
+  if [ "$ABILIST" ]; then
+    ABILIST="$ABILIST,arm64-v8a"
+  else
+    ABILIST=arm64-v8a
+  fi
+fi
+if [ "$FIRARCH" == x64 ]\
+&& ! echo "$ABILIST" | grep -q x86_64; then
+  if [ "$ABILIST" ]; then
+    ABILIST="$ABILIST,x86_64"
+  else
+    ABILIST=x86_64
+  fi
+fi
+if [ "$SECARCH" == arm ]\
+&& ! echo "$ABILIST" | grep -q armeabi; then
+  if [ "$ABILIST" ]; then
+    ABILIST="$ABILIST,armeabi"
+  else
+    ABILIST=armeabi
+  fi
+fi
+if [ "$SECARCH" == arm ]\
+&& ! echo "$ABILIST" | grep -q armeabi-v7a; then
+  if [ "$ABILIST" ]; then
+    ABILIST="$ABILIST,armeabi-v7a"
+  else
+    ABILIST=armeabi-v7a
+  fi
+fi
+if [ "$SECARCH" == x86 ]\
+&& ! echo "$ABILIST" | grep -q x86; then
+  if [ "$ABILIST" ]; then
+    ABILIST="$ABILIST,x86"
+  else
+    ABILIST=x86
+  fi
+fi
 ABILIST32=`grep_get_prop ro.product.cpu.abilist32`
 if [ ! "$ABILIST32" ]; then
   ABILIST32=`grep_get_prop ro.system.product.cpu.abilist32`
+fi
+if [ "$SECARCH" == arm ]\
+&& ! echo "$ABILIST32" | grep -q armeabi; then
+  if [ "$ABILIST32" ]; then
+    ABILIST32="$ABILIST32,armeabi"
+  else
+    ABILIST32=armeabi
+  fi
+fi
+if [ "$SECARCH" == arm ]\
+&& ! echo "$ABILIST32" | grep -q armeabi-v7a; then
+  if [ "$ABILIST32" ]; then
+    ABILIST32="$ABILIST32,armeabi-v7a"
+  else
+    ABILIST32=armeabi-v7a
+  fi
+fi
+if [ "$SECARCH" == x86 ]\
+&& ! echo "$ABILIST32" | grep -q x86; then
+  if [ "$ABILIST32" ]; then
+    ABILIST32="$ABILIST32,x86"
+  else
+    ABILIST32=x86
+  fi
 fi
 if [ ! "$ABILIST32" ]; then
   [ -f /system/lib/libandroid.so ] && ABILIST32=true
@@ -64,21 +130,6 @@ else
 fi
 ui_print " "
 
-# sdk
-NUM=19
-NUM2=27
-if [ "$API" -lt $NUM ]; then
-  ui_print "! Unsupported SDK $API. You have to upgrade your"
-  ui_print "  Android version at least SDK $NUM to use this module."
-  abort
-elif [ "$API" -gt $NUM2 ]; then
-  ui_print "! Unsupported SDK $API."
-  ui_print "  This module is only for SDK $NUM2 and bellow."
-else
-  ui_print "- SDK $API"
-fi
-ui_print " "
-
 # architecture
 if [ "$ABILIST" ]; then
   ui_print "- $ABILIST architecture"
@@ -108,6 +159,21 @@ if ! echo "$ABILIST" | grep -q $NAME2; then
     ui_print " "
   fi
 fi
+
+# sdk
+NUM=19
+NUM2=27
+if [ "$API" -lt $NUM ]; then
+  ui_print "! Unsupported SDK $API. You have to upgrade your"
+  ui_print "  Android version at least SDK $NUM to use this module."
+  abort
+elif [ "$API" -gt $NUM2 ]; then
+  ui_print "! Unsupported SDK $API."
+  ui_print "  This module is only for SDK $NUM2 and bellow."
+else
+  ui_print "- SDK $API"
+fi
+ui_print " "
 
 # recovery
 mount_partitions_in_recovery
@@ -309,7 +375,7 @@ if echo "$PROP" | grep -q m; then
   sed -i 's|#m||g' $FILE
   sed -i 's|musicstream=|musicstream=true|g' $MODPATH/acdb.conf
   sed -i 's|music_stream false|music_stream true|g' $MODPATH/service.sh
-  ui_print "  Sound effect will always be enabled"
+  ui_print "  The sound effect will always be enabled"
   ui_print "  and cannot be disabled by on/off togglers"
   ui_print " "
 else
@@ -376,14 +442,11 @@ if echo "$PROP" | grep -q c; then
   sed -i 's|#c||g' $FILE
   ui_print " "
 fi
-if echo "$PROP" | grep -q p; then
-  ui_print "- Activating patch stream..."
+if [ "`grep_prop am3d.game $OPTIONALS`" != 0 ]; then
   sed -i 's|#p||g' $FILE
-  ui_print " "
-fi
-if echo "$PROP" | grep -q g; then
-  ui_print "- Activating rerouting stream..."
   sed -i 's|#g||g' $FILE
+else
+  ui_print "- Does not use AM3D Game patch & rerouting stream"
   ui_print " "
 fi
 
