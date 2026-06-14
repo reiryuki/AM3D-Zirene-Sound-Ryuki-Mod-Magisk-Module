@@ -12,12 +12,16 @@
 - KDDI/SHV33_jp_kdi/SHV33:7.0/SB201/03.02.09:user/release-keys
 - AM3DZireneSound.apk: https://github.com/therealahrion/AM3D-Zirene-Sound
 - libam3daudioenhancement.so: https://forum.xda-developers.com/t/am3d-zirene-reg-sound-unity-deprecated.3396698/page-37 AM3D_Nougat_libraries.zip
-- libmagiskpolicy.so: Kitsune Mask R6687BB53
+- libmagiskpolicy.so: Magisk (stable) 30.7 (30700)
 
 ## Screenshots
-- https://t.me/androidryukimodsdiscussions/26291
+https://t.me/androidryukimodsdiscussions/26291
 
 ## Changelog
+
+v3.3
+- Support NoMount metamodule
+- Move _uninstall.log to /data/adb/logs/
 
 v3.2
 - Does not disable raw playback (You can use Audio Compatibility Patch Reborn Magisk Module instead)
@@ -27,7 +31,7 @@ v3.1
 
 v3.0
 - Tidy up aml.sh
-- Exclude audioeffectshaptic.xml
+- Exclude \*audio\*effects\*haptic\*.xml
 - Abort installation if fail to mount mirror system
 - Fix wrong file permissions in some ROMs
 
@@ -67,16 +71,6 @@ v2.14
 - Fix mount partitions
 - Sets ro.audio.ignore_effects to false
 
-v2.13
-- KernelSU support
-- Magisk v26.1 support
-- Add some other stream mode Optionals
-- Save install log at /sdcard/..._recovery.log while installing via Recovery
-- Fix mount required partitions while installing via Recovery
-- Fix optional permissive mode
-- Set blacklist/whitelist
-- Save uninstall log in /data/adb/modules/..._uninstall.log
-
 ## Requirements
 - arm64-v8a or armeabi-v7a architecture
 - Android 4.4 (SDK 19) until 8.1 (SDK 27) only
@@ -84,8 +78,8 @@ v2.13
 - Magisk or Kitsune Mask or KernelSU or Apatch installed
 
 ## Installation Guide & Download Link
-- If you are using KernelSU, you need to disable Unmount Modules by Default in KernelSU app settings and install https://github.com/KernelSU-Modules-Repo/meta-overlayfs first
-- Install this module https://devuploads.com/lo8ffr8hchwz via Magisk app or Kitsune Mask app or KernelSU app or Apatch app or Recovery if Magisk or Kitsune Mask installed
+- If you are using KernelSU, you need to disable Unmount Modules by Default in KernelSU app settings and install https://github.com/KernelSU-Modules-Repo/meta-overlayfs or https://github.com/KernelSU-Modules-Repo/magic_mount_rs or https://github.com/KernelSU-Modules-Repo/hybrid_mount or https://github.com/maxsteeel/nomount first depending on ROM compatibility
+- Install this module via Magisk app or Kitsune Mask app or KernelSU app or Apatch app or Recovery if Magisk or Kitsune Mask installed
 - Install AML Magisk Module https://t.me/ryukinotes/34 only if using any other else audio mod module
 - Reboot
 - If you are using KernelSU, you need to allow superuser list manually all package name listed in package.txt (and your home launcher app also) (enable show system apps) and reboot afterwards
@@ -97,7 +91,7 @@ v2.13
 - Stream: https://t.me/ryukinotes/52
 
 ## Troubleshootings
-- Global: https://t.me/ryukinotes/34
+Global: https://t.me/ryukinotes/34
 
 ## Support & Bug Report
 - https://t.me/ryukinotes/54
@@ -111,6 +105,6 @@ v2.13
 - You can contribute ideas about this Magisk Module here: https://t.me/androidappsportdevelopment
 
 ## Sponsors
-- https://t.me/ryukinotes/25
+https://t.me/ryukinotes/25
 
 
