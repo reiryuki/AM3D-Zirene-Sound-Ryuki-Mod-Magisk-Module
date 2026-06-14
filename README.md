@@ -21,6 +21,7 @@ https://t.me/androidryukimodsdiscussions/26291
 
 v3.3
 - Support NoMount metamodule
+- Update libmagiskpolicy.so from Magisk (stable) 30.7 (30700)
 - Move _uninstall.log to /data/adb/logs/
 
 v3.2
