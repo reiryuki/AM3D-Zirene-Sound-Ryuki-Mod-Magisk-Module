@@ -27,9 +27,9 @@ Equalizer global type sound effect ported from SHARP Aquos SHV33 and integrated 
 
 ## Download Links and Changelog
 
-v3.4 Original UI: https://github.com/reiryuki/AM3D-Zirene-Sound-Ryuki-Mod-Magisk-Module
+v3.4 Original UI: https://move2link.co/145bd57
 
-v3.4 New UI: https://github.com/reiryuki/AM3D-Zirene-Sound-Ryuki-Mod-Magisk-Module
+v3.4 New UI: https://move2link.co/bf6d5d6
 
 - AM3DZireneSound.apk: Fix post process mode: Bypass release method when using stream_mode=m
 - Update libmagiskpolicy.so from Magisk (debug) 31.0 (31000)
