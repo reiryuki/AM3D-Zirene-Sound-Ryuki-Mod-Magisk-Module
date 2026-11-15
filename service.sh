@@ -70,7 +70,7 @@ fi
 
 # allow
 PKG=com.fihtdc.am3dfx
-if appops get $PKG > /dev/null 2>&1; then
+if appops get $PKG >/dev/null 2>&1; then
   if [ "$API" -ge 30 ]; then
     appops set $PKG AUTO_REVOKE_PERMISSIONS_IF_UNUSED ignore
   fi
@@ -110,14 +110,6 @@ check_audioserver
 PROC=`cat $MODPATH/package.txt`
 killall $PROC
 check_audioserver
-
-
-
-
-
-
-
-
 
 
 

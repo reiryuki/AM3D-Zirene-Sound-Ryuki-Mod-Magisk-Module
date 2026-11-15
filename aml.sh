@@ -274,7 +274,9 @@ done
 # patch audio effects
 LIB=libam3daudioenhancement.so
 LIBNAME=am3daudioenhancement
+LIBNAME=am3daudioenhancement_mod
 NAME=am3daudioenhancement
+NAME=am3daudioenhancement_mod
 UUID=6723dd80-f0b7-11e0-98a2-0002a5d5c51b
 RMVS="$LIB $LIBNAME $NAME $UUID"
 archdir
@@ -320,7 +322,6 @@ if [ "$ARCHDIR" ]; then
 #g    sed -i "/<stream type=\"rerouting\">/a\            <apply effect=\"$NAME\"\/>" $MODAEX
   done
 fi
-
 
 
 

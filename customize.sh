@@ -164,12 +164,15 @@ fi
 NUM=19
 NUM2=27
 if [ "$API" -lt $NUM ]; then
-  ui_print "! Unsupported SDK $API. You have to upgrade your"
-  ui_print "  Android version at least SDK $NUM to use this module."
+  ui_print "! Unsupported SDK $API."
+  ui_print "  You have to upgrade your Android version at least"
+  ui_print "  SDK $NUM to use this module."
   abort
 elif [ "$API" -gt $NUM2 ]; then
-  ui_print "! Unsupported SDK $API."
-  ui_print "  This module is only for SDK $NUM2 and bellow."
+  ui_print "- SDK $API"
+  ui_print "  If you experience no sound issue when activating"
+  ui_print "  AM3D Zirene Sound, that means your device does"
+  ui_print "  not support legacy HIDL audio service."
 else
   ui_print "- SDK $API"
 fi
@@ -178,8 +181,8 @@ ui_print " "
 # recovery
 mount_partitions_in_recovery
 
-# magisk
-magisk_setup
+# mirror
+mirror_setup
 
 # path
 SYSTEM=`realpath $MIRROR/system`
@@ -208,7 +211,6 @@ if [ "`grep_prop mod.ui $OPTIONALS`" == 1 ]; then
   ui_print "- Using modified UI apk..."
   if [ -f $FILE ]; then
     cp -f $FILE $DIR
-    chmod 0644 $DIR/$APP.apk
     ui_print "  Applied"
   else
     ui_print "  ! There is no $FILE file."
@@ -449,7 +451,7 @@ fi
 
 # directory
 if [ "$API" -le 25 ]; then
-  ui_print "- /vendor/lib*/soundfx is not supported in SDK 25 and bellow"
+  ui_print "- /vendor/lib*/soundfx is not supported in SDK 25 and below"
   ui_print "  Using /system/lib*/soundfx instead"
   cp -rf $MODPATH/system/vendor/lib* $MODPATH/system
   rm -rf $MODPATH/system/vendor/lib*
@@ -473,14 +475,6 @@ MODSYSTEM=/system
 
 # unmount
 unmount_mirror
-
-
-
-
-
-
-
-
 
 
 

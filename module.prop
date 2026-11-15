@@ -1,8 +1,8 @@
 id=AM3DZireneSound
 name=AM3D Zirene Sound Ryuki Mod
-version=v3.3
-versionCode=33
+version=v3.4
+versionCode=34
 author=Rei Ryuki the Fixer
-description=Equalizer global type sound effect ported from SHARP Aquos SHV33 for any arm64-v8a or armeabi-v7a architecture, Android 4.4 (SDK 19) until 8.1 (SDK 27) only.
+description=Equalizer global type sound effect ported from SHARP Aquos SHV33 for any arm64-v8a or armeabi-v7a architecture, Android 4.4 (SDK 19) and up, legacy HIDL audio service.
 
 
